@@ -1,6 +1,6 @@
-card.qext;
-card.html;
-card.js;
-card.css;
+card-template.qext;
+card-template.html;
+card-template.js;
+card-template.css;
 qliksense-card.html;
 preview.png
