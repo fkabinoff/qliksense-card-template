@@ -3,7 +3,7 @@ Qlik Sense card template
 The Qlik Sense card template includes a web component named "qliksense-card"
 which you can put Qlik Sense objects into and has fullscreen functionality
 similar to what you are used to having in the Qlik Sense client. It's easy to use,
-and works in dev-hub.
+and works in dev-hub. You can view a super simple example @ <http://webapps.qlik.com/qliksense-card-example/card-example.html>
 
 Getting started
 ---------------
