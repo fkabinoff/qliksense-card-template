@@ -6,7 +6,7 @@
   <template>
     <style>
       :host {
-        display: inline-block;
+        /*display: inline-block;*/
         position: relative;
         width: 100%;
       }
@@ -22,15 +22,64 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+        border-radius: 3px;
+        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+      }
+      ::content .qv-object {
+        padding: 0 15px 15px;
+        background-color: transparent;
+      }
+      ::content .card-title {
+        margin-top: -32px;
+        padding-left: 15px;
+        padding-bottom: 11px;
+        font-size: 15px;
+        color: #808080;
+        font-weight: 700;
+        font-family: 'Source Sans Pro', sans-serif;
       }
       .card-actions {
-        padding: 0px 16px;
-        border-bottom: 1px solid #ccc;
+        padding: 0;
+        border-bottom: 1px solid #F3F4F5;
         text-align: right;
+        z-index: 10;
+      }
+      .card-actions paper-icon-button {
+        z-index: 10000;
       }
       .card-content {
         flex: auto;
-        padding: 2px;
+        padding: 0;
+      }
+      .card-content ::content > .qvobject.with-title {
+        margin-top: -42px;
+        height: calc(100% + 42px);
+      }
+      .card-content ::content > .qvobject.with-title header {
+        /*padding-left: 0px;*/
+        margin-right: 12px;
+        margin-top: -6px;
+      }
+      .card-content ::content > .qvobject.with-title .sel-toolbar-card {
+        top: 0px !important;
+      }
+      :host.fullscreen .card-content ::content > .qvobject.with-title .sel-toolbar-card {
+        top: 0px !important;
+      } 
+      :host.fullscreen .card-content ::content .sel-toolbar-list {
+      /*  margin-right: 36px;*/
+      }
+      .card-content ::content .sel-toolbar-card {
+        top: -42px !important;
+      }
+      .card-content ::content > .qvobject:not(.with-title) .sel-toolbar-list {
+       /* margin-right: 36px;*/
+      }
+      .card-content ::content .sel-toolbar-card {
+        top: -42px !important;
+      }
+      .card-content ::content > .qvobject:not(.with-title) .sel-toolbar-list {
+        margin-right: 36px;
       }
     </style>
 
@@ -40,7 +89,7 @@
         <paper-icon-button icon="fullscreen-exit" on-tap="fullscreenExit" hidden$="{{!fullscreen}}"></paper-icon-button>
       </div>
       <div class="card-content" style$="height: {{contentHeight}};">
-        <content></content>
+        <content id="content"></content>
       </div>
     </paper-card>
   </template>
